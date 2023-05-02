@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-Cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- css -->
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .banner {
+        position: relative;
+        width: 650px;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .banner-list {
+        position: relative;
+        left: 0;
+        width: calc(650px * calc(var(--bannerNum) + 1));
+        height: 360px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        overflow: hidden;
+        transition-property: left;
+      }
+
+      .banner-item {
+        float: left;
+        width: calc(100% / calc(var(--bannerNum) + 1));
+        height: 100%;
+      }
+
+      .banner-item img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .banner-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 24px;
+        backdrop-filter: blur(50px);
+        opacity: 0.95;
+      }
+
+      .banner-menu {
+        height: 32px;
+        text-align: right;
+      }
+
+      .btn {
+        padding: 4px;
+        outline: 0;
+        border: 0;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 0;
+        transition: background-color 0.35s;
+      }
+
+      .btn:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .dots {
+        float: left;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        margin: 0 4px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transition: background-color 0.35s;
+      }
+
+      .dots > .active {
+        background-color: white;
+      }
+
+      .placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 44px;
+        font-weight: 600;
+        color: #eee;
+        background-color: rgb(187, 197, 207);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <ul class="banner-list" style="--bannerNum: 4">
+        <!-- <li class="banner-item"><img src="./image/example.jpg" alt="banner-item"></li> -->
+        <li class="banner-item placeholder">1</li>
+        <li class="banner-item placeholder">2</li>
+        <li class="banner-item placeholder">3</li>
+        <li class="banner-item placeholder">4</li>
+      </ul>
+      <div class="banner-bottom">
+        <div class="banner-menu">
+          <ul class="dots">
+            <li class="dot active" data-index="0"></li>
+            <li class="dot" data-index="1"></li>
+            <li class="dot" data-index="2"></li>
+            <li class="dot" data-index="3"></li>
+          </ul>
+          <button class="btn prev">
+            <svg width="24" height="24" viewBox="0 0 1024 1024">
+              <path
+                fill="currentColor"
+                d="M609.408 149.376L277.76 489.6a32 32 0 0 0 0 44.672l331.648 340.352a29.12 29.12 0 0 0 41.728 0a30.592 30.592 0 0 0 0-42.752L339.264 511.936l311.872-319.872a30.592 30.592 0 0 0 0-42.688a29.12 29.12 0 0 0-41.728 0z"
+              />
+            </svg>
+          </button>
+          <button class="btn next">
+            <svg width="24" height="24" viewBox="0 0 1024 1024">
+              <path
+                fill="currentColor"
+                d="M340.864 149.312a30.592 30.592 0 0 0 0 42.752L652.736 512L340.864 831.872a30.592 30.592 0 0 0 0 42.752a29.12 29.12 0 0 0 41.728 0L714.24 534.336a32 32 0 0 0 0-44.672L382.592 149.376a29.12 29.12 0 0 0-41.728 0z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      import Banner from './Banner.js'
+
+      const banner = new Banner({
+        el: '.banner',
+        wait: 3000,
+      })
+    </script>
+  </body>
+</html>
