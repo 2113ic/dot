@@ -1,0 +1,62 @@
+#fl-message {
+  position: fixed;
+  top: 80px; left: 50%;
+  z-index: 9999;
+  transform: translateX(-50%);
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 35px;
+  padding: 15px;
+  margin-bottom: 10px;
+  line-height: 35px;
+
+  opacity: 0;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  transition: all ease .25s;
+  box-sizing: border-box;
+}
+
+.content {
+  max-width: 500px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.message svg {
+  width: 16px; height: 16px;
+  margin-right: 10px;
+}
+
+.message-info {
+  color: hsl(219, 12%, 67%);
+}
+
+.message-success {
+  color: hsl(123, 41%, 50%);
+}
+
+.message-error {
+  color: hsl(0, 70%, 50%);
+}
+
+.message-warning {
+  color: hsl(33, 100%, 50%);
+}
+
+.message-insert {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.message-leave {
+  opacity: 0;
+  margin-top: -40px;
+}

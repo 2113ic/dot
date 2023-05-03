@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="LightTip.css" />
+  </head>
+  <body>
+    <div class="btns">
+      <button class="info">info</button>
+      <button class="success">success</button>
+      <button class="error">error</button>
+      <button class="warning">warning</button>
+    </div>
+
+    <script type="module">
+      import LightTip from './LightTip.js'
+
+      document.querySelector('.btns').addEventListener('click', send)
+
+      function send(e) {
+        /** @type {HTMLElement} */
+        const el = e.target
+        
+        LightTip.info(`一条${el.innerHTML}信息`)
+      }
+    </script>
+  </body>
+</html>
