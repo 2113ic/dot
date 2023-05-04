@@ -1,0 +1,85 @@
+@import './theme/default.scss';
+
+// .night is dark mode for img.
+[theme='dark'] .night {
+  background-color: hsla(223deg, 71%, 16%, 0.6);
+  background-blend-mode: darken;
+  filter: brightness(80%) grayscale(20%) contrast(1.2);
+}
+
+/* Scrollbar style. */
+/* Reset user proxy style for browser scrollbar. */
+::-webkit-scrollbar {
+  background-color: transparent;
+  height: 12px;
+  width: 12px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-clip: content-box;
+  -webkit-background-clip: content-box;
+  background-color: var(--scrollbar-thumb-color);
+  border: 3px solid transparent;
+  border-radius: 99px;
+  transition: background 0.2s ease-in-out;
+}
+
+/* Selection style. */
+/* When user select text with will change selected text background color. */
+@mixin selectionMixin {
+  background: var(--bg-selection-color);
+  color: inherit;
+}
+
+::selection {
+  @include selectionMixin;
+}
+
+::-moz-selection {
+  @include selectionMixin;
+}
+
+::-webkit-selection {
+  @include selectionMixin;
+}
+
+body {
+  margin: 0;
+  color: var(--font-color);
+  background-color: var(--bg-color);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji';
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 250px;
+  padding: 24px 0 0;
+
+  .title {
+    font-size: 38px;
+  }
+
+  .summay {
+    font-size: 18px;
+    color: var(--font-subtitle-color);
+  }
+}
+
+main {
+  max-width: 800px;
+  margin: -42px auto 64px;
+  height: 600px;
+  border-radius: 12px;
+}
