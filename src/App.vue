@@ -14,11 +14,11 @@ import ToggleTheme from './components/ToggleTheme.vue'
     <ul class="list">
       <li class="list-item">
         <img class="night" src="/public/cover/banner.png" alt="cover" />
-        <a class="list-title" href="./package/banner/">Banner</a>
+        <a class="list-title" href="./public/package/banner/">Banner</a>
       </li>
       <li class="list-item">
         <img class="night" src="/public/cover/lightTip.png" alt="cover" />
-        <a class="list-title" href="./package/LightTip/">lightTip</a>
+        <a class="list-title" href="./public/package/LightTip/">lightTip</a>
       </li>
     </ul>
   </main>
@@ -55,6 +55,7 @@ import ToggleTheme from './components/ToggleTheme.vue'
 
     .list-title {
       margin: 12px 0;
+      font-size: 18px;
       font-weight: 600;
       transition: color .3s;
       list-style: square;
