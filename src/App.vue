@@ -18,7 +18,7 @@ import ToggleTheme from './components/ToggleTheme.vue'
       </li>
       <li class="list-item">
         <img class="night" src="/public/cover/lightTip.png" alt="cover" />
-        <a class="list-title" href="./public/package/LightTip/">lightTip</a>
+        <a class="list-title" href="./public/package/LightTip/">LightTip</a>
       </li>
     </ul>
   </main>
@@ -44,7 +44,7 @@ import ToggleTheme from './components/ToggleTheme.vue'
     flex-direction: column;
     padding: 16px;
     border-radius: 8px;
-    background-color: var(--bg-card-color);
+    border: 1px solid var(--border-color);
     transition: background-color 0.3s;
 
     img {
@@ -58,7 +58,6 @@ import ToggleTheme from './components/ToggleTheme.vue'
       font-size: 18px;
       font-weight: 600;
       transition: color .3s;
-      list-style: square;
 
       &:hover { color: var(--primary); }
     }
