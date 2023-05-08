@@ -4,15 +4,19 @@ function getURL(name) {
   return mode.DEV ? `./public/package/${name}/` : `./packge/${name}/`
 }
 
+function getCover(name) {
+  return mode.DEV ? `./public/cover/${name}` : `./cover/${name}`
+}
+
 export default [
   {
     title: 'Banner',
-    cover: 'banner.png',
+    cover: getCover('banner.png'),
     url: getURL('banner'),
   },
   {
     title: 'LightTip',
-    cover: 'lightTip.png',
+    cover: getCover('lightTip.png'),
     url: getURL('LightTip'),
   },
 ]
