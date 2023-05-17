@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .obj, .arr {
+        display: flex;
+      }
+      .example-item {
+        display: inline-block;
+        padding: 24px;
+        margin: 24px;
+        border-radius: 6px;
+        border: 2px dashed lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="obj">
+      <div class="example-item">
+        <p data-bind="innerHTML:greet"></p>
+        <p data-ref="question">问世间帅为何物？</p>
+        <p data-ref="question" hidden></p>
+
+        <button data-event="click:showAnswer">点我查看答案</button>
+      </div>
+
+      <div class="list">
+        <ul class="example-item">
+          <template data-clone="listItem1:true:arr1">
+            <li data-target="listItem1">
+              <p data-bind="innerHTML:name"></p>
+
+              <template data-clone="spanItem:false:images">
+                <p data-target="spanItem" data-bind="innerHTML:$item"></p>
+              </template>
+            </li>
+          </template>
+        </ul>
+
+        <ul class="example-item">
+          <template data-clone="listItem2:true:arr2">
+            <li data-target="listItem2">
+              <p data-bind="innerHTML:name"></p>
+
+              <template data-clone="spanItem1:false:images">
+                <p data-target="spanItem1" data-bind="innerHTML:$item"></p>
+              </template>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="arr">
+      <div class="example-item">
+        <p data-bind="innerHTML:at(0).name"></p>
+        <p data-ref="question">问世间帅为何物？</p>
+        <p data-ref="question" hidden></p>
+
+        <button data-event="click:showAnswer">点我查看答案</button>
+      </div>
+
+      <div class="list">
+        <ul class="example-item">
+          <template data-clone="listItem3:true">
+            <li data-target="listItem3">
+              <p data-bind="innerHTML:name"></p>
+
+              <template data-clone="spanItem:false:images">
+                <p data-target="spanItem" data-bind="innerHTML:$item"></p>
+              </template>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </div>
+
+    <script type="module">
+      import Base from './Base.js'
+
+      const dataObj = {
+        greet: '欢迎~',
+        arr1: [
+          {
+            name: 'xiaoyan-1',
+            images: [1, 2, 3],
+          },
+          {
+            name: 'xiaoyan-2',
+            images: [4, 5, 6],
+          },
+          {
+            name: 'xiaoyan-3',
+            images: [7, 8, 9],
+          },
+        ],
+        arr2: [
+          {
+            name: 'xiaoyan-11',
+            images: [11, 22, 33],
+          },
+          {
+            name: 'xiaoyan-22',
+            images: [44, 55, 66],
+          },
+          {
+            name: 'xiaoyan-33',
+            images: [77, 88, 99],
+          },
+        ],
+      }
+
+      const dataArr = [
+        {
+          name: 'xiaoyan-111',
+          images: [111, 222, 333],
+        },
+        {
+          name: 'xiaoyan-222',
+          images: [444, 555, 666],
+        },
+        {
+          name: 'xiaoyan-333',
+          images: [777, 888, 999],
+        },
+      ]
+
+      class MainBox extends Base {
+        constructor(selector) {
+          super(selector, function () {
+            return selector === '.obj' ? dataObj : dataArr
+          })
+          this.start()
+        }
+
+        showAnswer() {
+          this.question[1].innerHTML = '唯默小言独占也。'
+          this.question[1].hidden = false
+        }
+      }
+
+      new MainBox('.obj')
+      new MainBox('.arr')
+    </script>
+  </body>
+</html>
