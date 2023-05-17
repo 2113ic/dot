@@ -19,4 +19,9 @@ export default [
     cover: getCover('lightTip.png'),
     url: getURL('LightTip'),
   },
+  {
+    title: 'htmlPlus',
+    cover: getCover('htmlPlus.png'),
+    url: getURL('htmlPlus'),
+  },
 ]
