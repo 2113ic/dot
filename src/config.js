@@ -1,7 +1,7 @@
 const mode = import.meta.env
 
 function getURL(name) {
-  return mode.DEV ? `./public/package/${name}/` : `./packge/${name}/`
+  return mode.DEV ? `./public/package/${name}/` : `./package/${name}/`
 }
 
 function getCover(name) {
