@@ -21,7 +21,7 @@ export default [
   },
   {
     title: 'htmlPlus',
-    cover: getCover('htmlPlus.png'),
+    cover: getCover('htmlPlus.webp'),
     url: getURL('htmlPlus'),
   },
 ]

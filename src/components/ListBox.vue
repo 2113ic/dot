@@ -5,7 +5,7 @@ const data = defineProps(['list'])
 <template>
   <ul class="list">
     <li class="list-item" v-for="item of data.list" :key="item.title">
-      <img class="night" :src="item.cover" alt="cover" />
+      <img class="night" :src="item.cover" alt="cover" loading="lazy" />
       <a class="list-title" :href="item.url">{{ item.title }}</a>
     </li>
   </ul>
