@@ -7,7 +7,8 @@
     <title>Document</title>
 
     <style>
-      .obj, .arr {
+      .obj,
+      .arr {
         display: flex;
       }
       .example-item {
@@ -20,6 +21,27 @@
     </style>
   </head>
   <body>
+    <div class="example-box">
+      <a data-ref="question" data-bind="{innerHTML: name, href: name}">问世间帅为何物？</a>
+    </div>
+
+    <script type="module">
+      import Base from './Base/index.js'
+
+      class ExampleBox extends Base {
+        constructor(selector) {
+          super(selector, () => {
+            return {
+              name: 'xiaoyan',
+            }
+          })
+        }
+      }
+
+      new ExampleBox('.example-box')
+    </script>
+
+    <hr>
     <div class="obj">
       <div class="example-item">
         <p data-bind="innerHTML:greet"></p>
@@ -55,9 +77,7 @@
         </ul>
       </div>
     </div>
-
     <hr>
-
     <div class="arr">
       <div class="example-item">
         <p data-bind="innerHTML:at(0).name"></p>
@@ -83,7 +103,7 @@
     </div>
 
     <script type="module">
-      import Base from './Base.js'
+      import Base from './Base/index.js'
 
       const dataObj = {
         greet: '欢迎~',

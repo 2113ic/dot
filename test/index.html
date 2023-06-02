@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="example-box">
+      <p data-ref="question">问世间帅为何物？</p>
+
+      <button data-event="click:showAnswer">点我查看答案</button>
+    </div>
+
+    <script>
+      class Base {
+        constructor(selector) {
+          this.$el = document.querySelector(selector)
+          this.initRef()
+          this.initEvent()
+        }
+
+        initRef() {
+          const refNodes = this.getNodeAll('[data-ref]')
+
+          for (let node of refNodes) {
+            const key = node.dataset.ref
+
+            this[key] = node
+          }
+        }
+
+        initEvent() {
+          const eventNodes = this.getNodeAll('[data-event]')
+
+          for (let node of eventNodes) {
+            const [eventName, methodName] = node.dataset.event.split(':')
+
+            node.addEventListener(eventName, this[methodName].bind(this))
+          }
+        }
+
+        getNode(selector) {
+          return this.$el.querySelector(selector)
+        }
+
+        getNodeAll(selector) {
+          return this.$el.querySelectorAll(selector)
+        }
+      }
+
+      const dataObj = {
+        greet: '欢迎~',
+        arr1: [
+          {
+            name: 'xiaoyan-1',
+            images: [1, 2, 3],
+          },
+          {
+            name: 'xiaoyan-2',
+            images: [4, 5, 6],
+          },
+          {
+            name: 'xiaoyan-3',
+            images: [7, 8, 9],
+          },
+        ],
+        arr2: [
+          {
+            name: 'xiaoyan-11',
+            images: [11, 22, 33],
+          },
+          {
+            name: 'xiaoyan-22',
+            images: [44, 55, 66],
+          },
+          {
+            name: 'xiaoyan-33',
+            images: [77, 88, 99],
+          },
+        ],
+      }
+
+      class ExampleBox extends Base {
+        constructor(selector) {
+          super(selector)
+        }
+
+        showAnswer() {
+          this.question.innerHTML = '唯默小言独占也。'
+        }
+      }
+
+      console.log(new ExampleBox('.example-box'))
+    </script>
+  </body>
+</html>
