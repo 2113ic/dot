@@ -24,4 +24,9 @@ export default [
     cover: getCover('htmlPlus.webp'),
     url: getURL('htmlPlus'),
   },
+  {
+    title: 'TabSwitcher',
+    cover: getCover('tabSwitcher.png'),
+    url: getURL('TabSwitcher'),
+  },
 ]

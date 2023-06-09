@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: antiquewhite;
+      }
+
+      .main {
+        width: 800px;
+        height: 600px;
+        padding: 12px 24px;
+        background-color: white;
+        border-radius: 20px;
+        border: 2px dashed #eee;
+      }
+
+      .head {
+        padding: 12px 0;
+        border-bottom: 1px dashed #eee;
+        overflow: hidden;
+      }
+
+      .head ul {
+        float: right;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .tab-item {
+        float: left;
+        margin: 0 12px;
+      }
+
+      .tab-item > a {
+        display: inline-block;
+        padding: 0.4em 0.8em;
+        border-radius: 6px;
+        transition: background-color 0.35s;
+      }
+
+      .tab-item a:hover {
+        background-color: rgba(238, 238, 238, 0.4);
+      }
+
+      .tab-item a.active {
+        background-color: rgba(238, 238, 238, 0.6);
+      }
+
+      .content {
+        padding: 12px 0;
+      }
+
+      .active {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="head">
+        <!-- TabSwitcher -->
+        <ul data-tab="head-tab">
+          <li class="tab-item">
+            <a data-tab-for="tab1" href="javascript:">Tab1</a>
+          </li>
+          <li class="tab-item">
+            <a data-tab-for="tab2" href="javascript:" class="active">Tab2</a>
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <div data-tab-target="tab1" hidden>Page1</div>
+        <div data-tab-target="tab2" hidden class="active">Page2</div>
+      </div>
+    </div>
+
+    <script type="module">
+      import TabSwitcher from './TabSwitcher.js'
+      
+      console.log(new TabSwitcher({ el: 'head-tab' }))
+    </script>
+  </body>
+</html>
