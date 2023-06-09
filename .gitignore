@@ -3,6 +3,7 @@ node_modules
 *.local
 backup
 dist
+test
 
 # Log files
 npm-debug.log*

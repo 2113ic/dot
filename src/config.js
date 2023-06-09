@@ -16,17 +16,17 @@ export default [
   },
   {
     title: 'LightTip',
-    cover: getCover('lightTip.png'),
+    cover: getCover('light-tip.png'),
     url: getURL('LightTip'),
   },
   {
     title: 'htmlPlus',
-    cover: getCover('htmlPlus.webp'),
+    cover: getCover('html-plus.webp'),
     url: getURL('htmlPlus'),
   },
   {
     title: 'TabSwitcher',
-    cover: getCover('tabSwitcher.png'),
+    cover: getCover('tab-switcher.png'),
     url: getURL('TabSwitcher'),
   },
 ]
