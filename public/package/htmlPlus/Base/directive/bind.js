@@ -1,13 +1,14 @@
 export default function (node) {
+  if (!this.$data) return
   const params = getBindParams(node)
 
   if (Array.isArray(params)) {
     const [attrName, key] = params
 
-    node[attrName] = getRightData.call(this, node, key)
+    node[attrName] += getRightData.call(this, node, key)
   } else {
     Object.entries(params).forEach(([attrName, key]) => {
-      node[attrName] = getRightData.call(this, node, key)
+      node[attrName] += getRightData.call(this, node, key)
     })
   }
 

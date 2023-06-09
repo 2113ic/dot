@@ -6,6 +6,7 @@ export default function (node) {
   handleTemplate.call(this, node, target)
   node.__o__ = {
     tempKey: `${target}s`,
+    parent: node.parentNode,
     clone: {
       target,
       dataKey,

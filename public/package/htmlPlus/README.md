@@ -116,6 +116,7 @@
           url: './test'
         }
       })
+      this.bindStart()
     }
   }
 
@@ -165,6 +166,7 @@
           },
         ]
       })
+      this.cloneStart()
     }
   }
 

@@ -1,4 +1,5 @@
 import init from './init/index.js'
+import DireOptions from './directive/index.js'
 export default Base
 
 /**
@@ -40,13 +41,22 @@ Base.prototype.getNodeAll = function (selector) {
 /**
  * Start cloning templates and binding data.
  */
-Base.prototype.start = function () {
+Base.prototype.cloneStart = function () {
   traverseTree(this.$option.templates, (item) => {
     const tempKey = Object.keys(item).filter((key) => key !== 'children')[0]
     const template = item[tempKey]
-    const parent = template.parentNode
+    const parent = template.__o__.parent
 
     parent.append(template.cloneStart.call(this, template))
+  })
+}
+
+Base.prototype.bindStart = function () {
+  const nodeList = this.getNodeAll('[data-bind]')
+
+  nodeList.forEach((item) => {
+    nodeList.__o__ ||= {}
+    DireOptions.bind.call(this, item)
   })
 }
 
@@ -58,7 +68,7 @@ Base.prototype.start = function () {
 function traverseTree(arr, callback) {
   for (const item of arr) {
     callback(item)
-    
+
     if (item.children && item.children.length > 0) {
       traverseTree(item.children, callback)
     }

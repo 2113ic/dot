@@ -22,7 +22,6 @@ export function initDirective(fragment) {
     nodeList.forEach((node) => {
       node.__o__ ||= {}
       DireOptions[dire].call(this, node)
-      node.removeAttribute(`data-${dire}`)
     })
   })
 }
