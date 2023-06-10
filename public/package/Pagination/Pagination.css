@@ -1,0 +1,62 @@
+[data-pagination] {
+  line-height: 28px;
+  padding: 24px;
+  color: hsl(220, 8%, 15%);
+  overflow: hidden;
+}
+
+[data-prev],
+[data-next] {
+  float: left;
+  padding: 4px 12px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid hsl(220, 8%, 83%);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+[data-prev]:disabled,
+[data-next]:disabled {
+  cursor: not-allowed;
+}
+
+[data-pages] {
+  float: left;
+  margin: 0 8px;
+  padding-left: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+[data-pages] .page,
+[data-pages] .more {
+  float: left;
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid hsl(220, 8%, 83%);
+  background-color: white;
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+[data-pages] .page:last-child {
+  margin-right: 0;
+}
+
+[data-pages] .more {
+  cursor: default;
+}
+
+[data-pages] .more::before {
+  content: '···';
+}
+
+[data-pages] .active {
+  border: 1px solid transparent;
+  color: white;
+  background-color: hsl(204, 70%, 50%);
+}

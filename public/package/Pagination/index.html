@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./Pagination.css" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+        margin: 0;
+      }
+
+      [data-pagination] {
+        margin-top: 200px;
+        border: 2px dashed #eee;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-pagination="test">
+      <button data-prev>上一页</button>
+      <ul data-pages></ul>
+      <button data-next>下一页</button>
+    </div>
+
+    <script type="module">
+      import Pagination from './Pagination.js'
+
+      console.log(
+        new Pagination({
+          el: 'test',
+          pageCount: 7,
+          total: 120,
+          limit: 10,
+          singlePageHide: false,
+        })
+      )
+    </script>
+  </body>
+</html>

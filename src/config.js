@@ -29,4 +29,9 @@ export default [
     cover: getCover('tab-switcher.png'),
     url: getURL('TabSwitcher'),
   },
+  {
+    title: 'Pagination',
+    cover: getCover('pagination.png'),
+    url: getURL('Pagination'),
+  },
 ]
