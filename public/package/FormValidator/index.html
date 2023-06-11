@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../LightTip/LightTip.css" />
+    <style>
+      .form-item {
+        margin-bottom: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <form data-form="test">
+      <div class="form-item">
+        <input
+          type="text"
+          name="name"
+          data-valid="required"
+          placeholder="name"
+        />
+      </div>
+      <div class="form-item">
+        <input
+          type="text"
+          name="phone"
+          data-valid="required|phone"
+          placeholder="phone"
+        />
+      </div>
+      <div class="form-item">
+        <input
+          type="text"
+          name="code"
+          data-valid="required|positiveInteger"
+          placeholder="code"
+        />
+      </div>
+      <div class="form-item">
+        <input
+          type="text"
+          name="password"
+          data-valid="required|password"
+          placeholder="password"
+        />
+      </div>
+      <button type="submit">提交</button>
+    </form>
+
+    <script type="module">
+      import FormValidator from './FormValidator.js'
+      import LightTip from '../LightTip/LightTip.js'
+
+      const formValidator = new FormValidator('test', {
+        invalid(message, item) {
+          console.log(item);
+          LightTip.warning(message)
+        },
+        rules: {
+          password: {
+            message: '密码格式不正确',
+            pattern: /^[a-zA-Z0-9_.@#$%^&*]{6,15}$/
+          }
+        }
+      })
+
+      console.log(formValidator)
+      formValidator.el.addEventListener('submit', function (evt) {
+        evt.preventDefault()
+
+        if (formValidator.validate()) {
+          console.log('验证通过')
+        }
+      })
+    </script>
+  </body>
+</html>
